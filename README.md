@@ -17,8 +17,10 @@ flowchart LR
     A(User) -->|Makes API Request| B(API Gateway)
     B -->|Triggers| C(SubmitToSQS Lambda Function)
     C -->|Submits Message| D(SQS Queue)
+
+    %% Vertical flow after SQS Queue
     D -->|Triggers| E(SendEmailFromSQS Lambda Function)
-    E -->|Sends Email via SES| F(Recipient)
+    E --> F(Recipient)
     E -->|On Failure| G(DLQ - Dead Letter Queue)
 
     %% Styles
@@ -29,6 +31,8 @@ flowchart LR
     G:::resource
 
     classDef resource fill:#f5f5f5,stroke:#555,stroke-width:1.5px,stroke-dasharray: 5, 5, color:#333;
+
+
 
 
 
