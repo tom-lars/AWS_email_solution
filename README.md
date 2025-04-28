@@ -1,10 +1,10 @@
-# 🚀 Serverless Bulk Email Sending via API Gateway, SQS, Lambda, and SES
+# Serverless Bulk Email Sending via API Gateway, SQS, Lambda, and SES
 
 This project allows sending emails through a public API securely and scalably without losing emails even when SES throttles.
 
 ---
 
-## ✨ Architecture
+## Architecture
 
 - **API Gateway**: Accepts `POST` requests with email details.
 - **Lambda 1 (Submit Function)**: Receives API requests and puts the message in an **SQS queue**.
@@ -14,7 +14,7 @@ This project allows sending emails through a public API securely and scalably wi
 
 ---
 
-## 🛠 Deployment Steps
+## Deployment Steps
 
 ### 1. Setup Amazon SES
 - Verify your sender email address (or domain).
@@ -45,7 +45,7 @@ This project allows sending emails through a public API securely and scalably wi
 
 ---
 
-## 📋 API Request Format
+## API Request Format
 
 Send a POST request to API Gateway with this body:
 
