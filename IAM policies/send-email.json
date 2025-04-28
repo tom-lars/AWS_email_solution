@@ -4,7 +4,17 @@
         {
             "Effect": "Allow",
             "Action": [
-                "sqs:SendMessage"
+                "ses:SendEmail",
+                "ses:SendRawEmail"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "sqs:ReceiveMessage",
+                "sqs:DeleteMessage",
+                "sqs:GetQueueAttributes"
             ],
             "Resource": "arn:aws:sqs:your-region:your-account-id:EmailQueue"
         }
