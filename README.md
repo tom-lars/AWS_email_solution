@@ -12,6 +12,31 @@ This project allows sending emails through a public API securely and scalably wi
 - **Lambda 2 (Send Function)**: Listens to SQS, reads messages, and sends emails via **Amazon SES**.
 - **Dead Letter Queue (DLQ)**: Stores messages that fail processing.
 
+```mermaid
+flowchart LR
+    A(User) -->|Makes API Request| B(API Gateway)
+    B -->|Triggers| C(SubmitToSQS Lambda Function)
+    C -->|Submits Message| D(SQS Queue)
+    D -->|Triggers| E(SendEmailFromSQS Lambda Function)
+    E -->|Sends Email via SES| F(Recipient)
+    E -->|On Failure| G(DLQ - Dead Letter Queue)
+
+    %% Styles
+    B:::resource
+    C:::resource
+    D:::resource
+    E:::resource
+    G:::resource
+
+    classDef resource fill:#f5f5f5,stroke:#555,stroke-width:1.5px,stroke-dasharray: 5, 5, color:#333;
+
+
+
+
+
+```
+
+
 ---
 
 ## Deployment Steps
